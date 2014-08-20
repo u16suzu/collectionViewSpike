@@ -55,17 +55,20 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 #pragma mark - CollectionView delegate methods
 
+// 1セクションにある アイテムの個数
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{    
     return 12;
 }
 
+// アイテムのサイズ
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout*)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
       return CGSizeMake(130, 40);
 }
 
+// アイテムに設置されるセル
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor greenColor];
