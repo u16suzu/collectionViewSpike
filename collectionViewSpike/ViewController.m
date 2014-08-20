@@ -12,6 +12,9 @@
 @property (nonatomic) UICollectionView *collectionView;
 @end
 
+static NSString *cellIdentifier = @"zodiac_cell";
+
+
 @implementation ViewController
 
 - (void)loadView{
@@ -32,11 +35,16 @@
 
 - (UICollectionView*)collectionView{
     if(!_collectionView){
+        UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+        layout.minimumLineSpacing = 15; // y軸に関してのセル間のパディングの最小値
+        layout.sectionInset = UIEdgeInsetsMake(10, 15, 0, 15); // collectionView 自体の EdgeInsets
+        
+    
         _collectionView = [[UICollectionView alloc]
                            initWithFrame:CGRectZero
-                           collectionViewLayout:[UICollectionViewFlowLayout new]];
+                           collectionViewLayout:layout];
         
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
         [_collectionView registerClass:[UIView class] forSupplementaryViewOfKind:@"Hoge" withReuseIdentifier:@"EEE"];
         
         _collectionView.delegate = self;
@@ -49,15 +57,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{    
-    return 10;
+    return 12;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(50, 50);
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout*)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+      return CGSizeMake(130, 40);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MY_CELL" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor greenColor];
     
     return cell;
