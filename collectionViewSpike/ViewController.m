@@ -55,6 +55,10 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 #pragma mark - CollectionView delegate methods
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"section = %ld, row = %ld", indexPath.section, indexPath.row);
+}
+
 // 1セクションにある アイテムの個数
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{    
