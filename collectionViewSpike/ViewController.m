@@ -28,7 +28,10 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    self.collectionView.frame = CGRectMake(0, 20, 320, 568);
+    
+    CGFloat statusBarHeight = 20;
+    
+    self.collectionView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.size.width, self.view.bounds.size.height - statusBarHeight);
 }
 
 #pragma mark - Views
@@ -36,7 +39,8 @@ static NSString *cellIdentifier = @"zodiac_cell";
 - (UICollectionView*)collectionView{
     if(!_collectionView){
         UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-        layout.minimumLineSpacing = 15; // y軸に関してのセル間のパディングの最小値
+        layout.minimumLineSpacing = 15;       // y軸に関してのセル間のパディングの最小値
+        layout.minimumInteritemSpacing = 100; // x軸に関してのセル間のパディングの最小値
         layout.sectionInset = UIEdgeInsetsMake(10, 15, 0, 15); // collectionView 自体の EdgeInsets
         
     
@@ -45,7 +49,6 @@ static NSString *cellIdentifier = @"zodiac_cell";
                            collectionViewLayout:layout];
         
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
-        [_collectionView registerClass:[UIView class] forSupplementaryViewOfKind:@"Hoge" withReuseIdentifier:@"EEE"];
         
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -66,16 +69,15 @@ static NSString *cellIdentifier = @"zodiac_cell";
 }
 
 // アイテムのサイズ
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout*)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
       return CGSizeMake(130, 40);
 }
 
 // アイテムに設置されるセル
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor greenColor];
+    cell.backgroundColor = [UIColor redColor];
     
     return cell;
 }

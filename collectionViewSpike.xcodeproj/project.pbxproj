@@ -18,10 +18,6 @@
 		6400FE5F17E6FC460006EC76 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6400FE5E17E6FC460006EC76 /* Default-568h@2x.png */; };
 		6400FE6217E6FC460006EC76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400FE6117E6FC460006EC76 /* ViewController.m */; };
 		6400FE6517E6FC460006EC76 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6400FE6317E6FC460006EC76 /* ViewController.xib */; };
-		6400FE7417E8BE970006EC76 /* a.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6400FE7017E8BE970006EC76 /* a.gif */; };
-		6400FE7517E8BE970006EC76 /* b.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6400FE7117E8BE970006EC76 /* b.gif */; };
-		6400FE7617E8BE970006EC76 /* c.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6400FE7217E8BE970006EC76 /* c.gif */; };
-		6400FE7717E8BE970006EC76 /* d.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6400FE7317E8BE970006EC76 /* d.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +37,6 @@
 		6400FE6017E6FC460006EC76 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6400FE6117E6FC460006EC76 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6400FE6417E6FC460006EC76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		6400FE7017E8BE970006EC76 /* a.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = a.gif; sourceTree = "<group>"; };
-		6400FE7117E8BE970006EC76 /* b.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = b.gif; sourceTree = "<group>"; };
-		6400FE7217E8BE970006EC76 /* c.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = c.gif; sourceTree = "<group>"; };
-		6400FE7317E8BE970006EC76 /* d.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = d.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +88,6 @@
 				6400FE6017E6FC460006EC76 /* ViewController.h */,
 				6400FE6117E6FC460006EC76 /* ViewController.m */,
 				6400FE6317E6FC460006EC76 /* ViewController.xib */,
-				6400FE7017E8BE970006EC76 /* a.gif */,
-				6400FE7117E8BE970006EC76 /* b.gif */,
-				6400FE7217E8BE970006EC76 /* c.gif */,
-				6400FE7317E8BE970006EC76 /* d.gif */,
 				6400FE4F17E6FC460006EC76 /* Supporting Files */,
 			);
 			path = collectionViewSpike;
@@ -175,10 +163,6 @@
 				6400FE5D17E6FC460006EC76 /* Default@2x.png in Resources */,
 				6400FE5F17E6FC460006EC76 /* Default-568h@2x.png in Resources */,
 				6400FE6517E6FC460006EC76 /* ViewController.xib in Resources */,
-				6400FE7417E8BE970006EC76 /* a.gif in Resources */,
-				6400FE7517E8BE970006EC76 /* b.gif in Resources */,
-				6400FE7617E8BE970006EC76 /* c.gif in Resources */,
-				6400FE7717E8BE970006EC76 /* d.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
