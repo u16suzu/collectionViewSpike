@@ -52,8 +52,8 @@ static NSString *cellIdentifier = @"zodiac_cell";
 - (UICollectionViewFlowLayout*)collectionViewFlowLayout{
     if(!_collectionViewFlowLayout){
         _collectionViewFlowLayout = [UICollectionViewFlowLayout new];
-        _collectionViewFlowLayout.minimumLineSpacing      = 1;  // y軸に関してのセル間のパディングの最小値
-        _collectionViewFlowLayout.minimumInteritemSpacing = 1; // x軸に関してのセル間のパディングの最小値
+        _collectionViewFlowLayout.minimumLineSpacing      = 0;  // y軸に関してのセル間のパディングの最小値
+        _collectionViewFlowLayout.minimumInteritemSpacing = 0; // x軸に関してのセル間のパディングの最小値
         _collectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0); // UICollectionView 自体の EdgeInsets
     }
     return _collectionViewFlowLayout;
@@ -69,7 +69,7 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 // 1セクションにある アイテムの個数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{    
-    return 12;
+    return 100;
 }
 
 // アイテムタップ時のイベント
@@ -79,14 +79,35 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 // アイテムのサイズ
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-      return CGSizeMake(130, 40);
+    int itemNumInRow = 4;
+
+    CGSize itemSize = CGSizeMake(self.view.frame.size.width/itemNumInRow, 40);
+
+    return itemSize;
 }
 
 // アイテムに設置されるセル
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    
+    switch (indexPath.row %5) {
+        case 0:
+            cell.backgroundColor = [UIColor greenColor];
+            break;
+        case 1:
+            cell.backgroundColor = [UIColor redColor];
+            break;
+        case 2:
+            cell.backgroundColor = [UIColor blueColor];
+            break;
+        case  3:
+            cell.backgroundColor = [UIColor brownColor];
+            break;
+        default:
+            cell.backgroundColor = [UIColor yellowColor];
+            break;
+    }
     
     return cell;
 }
