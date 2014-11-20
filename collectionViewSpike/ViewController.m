@@ -39,10 +39,7 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 - (UICollectionView*)collectionView{
     if(!_collectionView){
-        _collectionView = [[UICollectionView alloc]
-                           initWithFrame:CGRectZero
-                           collectionViewLayout:self.collectionViewFlowLayout];
-        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewFlowLayout];        
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
