@@ -39,7 +39,7 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 - (UICollectionView*)collectionView{
     if(!_collectionView){
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewFlowLayout];        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewFlowLayout];
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -62,14 +62,19 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 #pragma mark - CollectionView delegate methods
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"section = %ld, row = %ld", indexPath.section, indexPath.row);
+// セクションの数 (optional)
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
 }
 
 // 1セクションにある アイテムの個数
-- (NSInteger)collectionView:(UICollectionView *)collectionView
-     numberOfItemsInSection:(NSInteger)section{    
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{    
     return 12;
+}
+
+// アイテムタップ時のイベント
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"section = %ld, row = %ld", indexPath.section, indexPath.row);
 }
 
 // アイテムのサイズ
