@@ -91,7 +91,7 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    switch (indexPath.row %5) {
+    switch (indexPath.row % 5) {
         case 0:
             cell.backgroundColor = [UIColor greenColor];
             break;
