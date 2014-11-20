@@ -10,6 +10,7 @@
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic) UICollectionView *collectionView;
+@property (nonatomic) UICollectionViewFlowLayout *collectionViewFlowLayout;
 @end
 
 static NSString *cellIdentifier = @"zodiac_cell";
@@ -38,23 +39,29 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 - (UICollectionView*)collectionView{
     if(!_collectionView){
-        UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-        layout.minimumLineSpacing = 15;       // y軸に関してのセル間のパディングの最小値
-        layout.minimumInteritemSpacing = 100; // x軸に関してのセル間のパディングの最小値
-        layout.sectionInset = UIEdgeInsetsMake(10, 15, 0, 15); // collectionView 自体の EdgeInsets
-        
-    
         _collectionView = [[UICollectionView alloc]
                            initWithFrame:CGRectZero
-                           collectionViewLayout:layout];
+                           collectionViewLayout:self.collectionViewFlowLayout];
         
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
-        
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
     }
     return _collectionView;
 }
+
+#pragma mark -
+
+- (UICollectionViewFlowLayout*)collectionViewFlowLayout{
+    if(!_collectionViewFlowLayout){
+        _collectionViewFlowLayout = [UICollectionViewFlowLayout new];
+        _collectionViewFlowLayout.minimumLineSpacing      = 1;  // y軸に関してのセル間のパディングの最小値
+        _collectionViewFlowLayout.minimumInteritemSpacing = 1; // x軸に関してのセル間のパディングの最小値
+        _collectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0); // UICollectionView 自体の EdgeInsets
+    }
+    return _collectionViewFlowLayout;
+}
+
 
 #pragma mark - CollectionView delegate methods
 
