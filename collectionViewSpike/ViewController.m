@@ -31,8 +31,12 @@ static NSString *cellIdentifier = @"zodiac_cell";
     [super viewDidLayoutSubviews];
     
     CGFloat statusBarHeight = 20;
-    
     self.collectionView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.size.width, self.view.bounds.size.height - statusBarHeight);
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    // 回転したら再描画することで, 縦でも横でも4個アイテムを表示する.
+    [self.collectionView reloadData];
 }
 
 #pragma mark - Views
@@ -47,7 +51,7 @@ static NSString *cellIdentifier = @"zodiac_cell";
     return _collectionView;
 }
 
-#pragma mark -
+#pragma mark - Property
 
 - (UICollectionViewFlowLayout*)collectionViewFlowLayout{
     if(!_collectionViewFlowLayout){
@@ -58,7 +62,6 @@ static NSString *cellIdentifier = @"zodiac_cell";
     }
     return _collectionViewFlowLayout;
 }
-
 
 #pragma mark - CollectionView delegate methods
 
