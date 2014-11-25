@@ -82,9 +82,11 @@ static NSString *cellIdentifier = @"zodiac_cell";
 
 // アイテムのサイズ
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    int itemNumInRow = 4;
+    int itemNumberInARow = 3;
+    CGFloat itemHeight   = 40;
+    CGFloat itemWidth    = self.view.frame.size.width / itemNumberInARow;
 
-    CGSize itemSize = CGSizeMake(self.view.frame.size.width/itemNumInRow, 40);
+    CGSize itemSize = CGSizeMake( itemWidth, itemHeight );
 
     return itemSize;
 }
